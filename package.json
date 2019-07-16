@@ -52,5 +52,5 @@
     "lint-staged": "^8.2.0",
     "prettier": "^1.18.2"
   },
-  "homepage": "https://murarova.github.io/go-react-hw-04/"
+  "homepage": "https://murarova.github.io/goit-react-hw-04-reader/"
 }
