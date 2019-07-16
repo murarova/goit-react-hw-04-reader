@@ -1,43 +1,34 @@
-import React from 'react';
-import propTypes from 'prop-types';
-import styles from '../reader.module.css';
+import React from "react";
+import propTypes from "prop-types";
+import styles from "../reader.module.css";
 
-const Controls = ({
-    nextIndex,
-    prevIndex,
-    nextButtonIsActive,
-    prevButtonIsActive,
-}) => (
-    <section className={styles.controls}>
-        <button
-            onClick={prevIndex}
-            type="button"
-            disabled={prevButtonIsActive}
-            className={styles.button}
-        >
-            Назад
-        </button>
-        <button
-            onClick={nextIndex}
-            type="button"
-            disabled={nextButtonIsActive}
-            className={styles.button}
-        >
-            Вперед
-        </button>
-    </section>
+const Controls = ({ nextIndex, prevIndex, currentPage }) => (
+  <section className={styles.controls}>
+    <button
+      onClick={prevIndex}
+      type="button"
+      className={currentPage === 1 ? styles.buttonDesable : styles.button}
+    >
+      Назад
+    </button>
+    <button
+      onClick={nextIndex}
+      type="button"
+      className={currentPage === 12 ? styles.buttonDesable : styles.button}
+    >
+      Вперед
+    </button>
+  </section>
 );
 
 Controls.propTypes = {
-    nextIndex: propTypes.func,
-    prevIndex: propTypes.func,
-    nextButtonIsActive: propTypes.bool.isRequired,
-    prevButtonIsActive: propTypes.bool.isRequired,
+  nextIndex: propTypes.func,
+  prevIndex: propTypes.func
 };
 
 Controls.defaultProps = {
-    nextIndex: () => {},
-    prevIndex: () => {},
+  nextIndex: () => {},
+  prevIndex: () => {}
 };
 
 export default Controls;

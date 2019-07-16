@@ -6,8 +6,8 @@ const Publication = ({ items, index }) => (
   <Fragment>
     <div className={styles.reader}>
       <article className={styles.publication}>
-        <h2>{items[index].title}</h2>
-        <p>{items[index].text}</p>
+        <h2>{items[index - 1].title}</h2>
+        <p>{items[index - 1].text}</p>
       </article>
     </div>
   </Fragment>

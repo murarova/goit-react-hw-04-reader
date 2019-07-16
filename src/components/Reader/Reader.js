@@ -1,9 +1,12 @@
 /* eslint-disable react/no-did-update-set-state */
 import React, { Fragment, Component } from "react";
 import propTypes from "prop-types";
+import queryString from "query-string";
 import Publication from "../Publication/Publication";
 import Counter from "../Counter/Counter";
 import Controls from "../Controls/Controls";
+
+const getQueryString = location => queryString.parse(location.search);
 
 export default class Reader extends Component {
   static defaultProps = {
@@ -14,72 +17,57 @@ export default class Reader extends Component {
     items: propTypes.arrayOf(propTypes.object)
   };
 
-  state = {
-    index: 0,
-    items: this.props.items,
-    prevButtonIsActive: true,
-    nextButtonIsActive: false
-  };
+  state = {};
 
   componentDidMount() {
-    this.props.history.push("/reader?item=1");
-  }
+    const itemNumber = Number(getQueryString(this.props.location).item);
 
-  componentDidUpdate(prevProps, prevState) {
-    const { index, items } = this.state;
-
-    if (prevState.index !== index && index === 1) {
-      this.setState(() => ({ prevButtonIsActive: false }));
-    }
-    if (prevState.index !== index && index === 0) {
-      this.setState(() => ({ prevButtonIsActive: true }));
-    }
-    if (prevState.index !== index && items.length - 1) {
-      this.setState(() => ({ nextButtonIsActive: true }));
-    }
-    if (prevState.index !== index && index < items.length - 1) {
-      this.setState(() => ({ nextButtonIsActive: false }));
-    }
+    this.props.history.push({
+      ...this.props.location,
+      search: `item=${itemNumber}`
+    });
   }
 
   nextIndex = () => {
-    this.setState(
-      state =>
-        state.index === state.items.length - 1 || {
-          index: state.index + 1
-        },
-      () =>
-        this.props.history.push({
-          ...this.props.location,
-          search: `item=${this.state.index + 1}`
-        })
-    );
+    const itemNumber = Number(getQueryString(this.props.location).item);
+
+    this.props.history.push({
+      ...this.props.location,
+      search: `item=${itemNumber + 1}`
+    });
   };
 
   prevIndex = () => {
-    this.setState(
-      state => state.index === 0 || { index: state.index - 1 },
-      () =>
-        this.props.history.push({
-          ...this.props.location,
-          search: `item=${this.state.index + 1}`
-        })
-    );
+    const itemNumber = Number(getQueryString(this.props.location).item);
+    this.props.history.push({
+      ...this.props.location,
+      search: `item=${itemNumber - 1}`
+    });
+  };
+
+  returnItemNumber = () => {
+    const itemNumber = Number(getQueryString(this.props.location).item);
+    if (!itemNumber || itemNumber < 0 || itemNumber > this.props.items.length) {
+      this.props.history.replace({
+        ...this.props.location,
+        search: "item=1"
+      });
+      return 1;
+    }
+    return itemNumber;
   };
 
   render() {
     const { items } = this.props;
-    const { index, nextButtonIsActive, prevButtonIsActive } = this.state;
 
     return (
       <Fragment>
-        <Publication items={items} index={index} />
-        <Counter items={items} index={index} />
+        <Publication items={items} index={this.returnItemNumber()} />
+        <Counter items={items} index={this.returnItemNumber()} />
         <Controls
+          currentPage={this.returnItemNumber()}
           nextIndex={this.nextIndex}
           prevIndex={this.prevIndex}
-          nextButtonIsActive={nextButtonIsActive}
-          prevButtonIsActive={prevButtonIsActive}
         />
       </Fragment>
     );

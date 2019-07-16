@@ -9,7 +9,7 @@ const App = ({ items }) => (
       path="/reader"
       render={props => <Reader {...props} items={items} />}
     />
-    <Route render={() => <Redirect to="/reader" />} />
+    <Route render={() => <Redirect to="/reader?item=1" />} />
   </Switch>
 );
 
