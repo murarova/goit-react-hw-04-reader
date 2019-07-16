@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/go-react-hw-04/static/css/main.aa976efd.chunk.css",
-    "main.js": "/go-react-hw-04/static/js/main.e54b2613.chunk.js",
-    "main.js.map": "/go-react-hw-04/static/js/main.e54b2613.chunk.js.map",
-    "runtime~main.js": "/go-react-hw-04/static/js/runtime~main.fb3635a2.js",
-    "runtime~main.js.map": "/go-react-hw-04/static/js/runtime~main.fb3635a2.js.map",
-    "static/js/2.9132997c.chunk.js": "/go-react-hw-04/static/js/2.9132997c.chunk.js",
-    "static/js/2.9132997c.chunk.js.map": "/go-react-hw-04/static/js/2.9132997c.chunk.js.map",
-    "index.html": "/go-react-hw-04/index.html",
-    "precache-manifest.a222b28092d14b25bbbae1f025e68557.js": "/go-react-hw-04/precache-manifest.a222b28092d14b25bbbae1f025e68557.js",
-    "service-worker.js": "/go-react-hw-04/service-worker.js",
-    "static/css/main.aa976efd.chunk.css.map": "/go-react-hw-04/static/css/main.aa976efd.chunk.css.map"
+    "main.css": "/go-react-hw-04-reader/static/css/main.aa976efd.chunk.css",
+    "main.js": "/go-react-hw-04-reader/static/js/main.e54b2613.chunk.js",
+    "main.js.map": "/go-react-hw-04-reader/static/js/main.e54b2613.chunk.js.map",
+    "runtime~main.js": "/go-react-hw-04-reader/static/js/runtime~main.030b90c2.js",
+    "runtime~main.js.map": "/go-react-hw-04-reader/static/js/runtime~main.030b90c2.js.map",
+    "static/js/2.9132997c.chunk.js": "/go-react-hw-04-reader/static/js/2.9132997c.chunk.js",
+    "static/js/2.9132997c.chunk.js.map": "/go-react-hw-04-reader/static/js/2.9132997c.chunk.js.map",
+    "index.html": "/go-react-hw-04-reader/index.html",
+    "precache-manifest.b923ab5c38cee57c510eb969efcda51d.js": "/go-react-hw-04-reader/precache-manifest.b923ab5c38cee57c510eb969efcda51d.js",
+    "service-worker.js": "/go-react-hw-04-reader/service-worker.js",
+    "static/css/main.aa976efd.chunk.css.map": "/go-react-hw-04-reader/static/css/main.aa976efd.chunk.css.map"
   }
 }
